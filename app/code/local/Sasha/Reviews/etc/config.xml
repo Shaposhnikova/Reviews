@@ -1,0 +1,30 @@
+<?xml version="1.0" ?>
+
+<config>
+    <modules>
+        <Sasha_Reviews>
+            <version>0.0.1</version>
+        </Sasha_Reviews>
+    </modules>
+    <global>
+        <models>
+            <reviews>
+                <resourceModel>reviews_resource</resourceModel>
+            </reviews>
+            <reviews_resource>
+                <entities>
+                    <reviews_table>
+                        <table>reviews</table>
+                    </reviews_table>
+                </entities>
+            </reviews_resource>
+        </models>
+        <resources>
+            <sasha_reviews_setup>
+                <setup>
+                    <module>Sasha_Reviews</module>
+                </setup>
+            </sasha_reviews_setup>
+        </resources>
+    </global>
+</config>
