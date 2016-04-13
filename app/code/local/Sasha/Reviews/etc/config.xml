@@ -9,9 +9,11 @@
     <global>
         <models>
             <reviews>
+                <class>Sasha_Reviews_Model</class>
                 <resourceModel>reviews_resource</resourceModel>
             </reviews>
             <reviews_resource>
+                <class>Sasha_Reviews_Model_Resource</class>
                 <entities>
                     <reviews_table>
                         <table>reviews</table>
@@ -27,4 +29,16 @@
             </sasha_reviews_setup>
         </resources>
     </global>
+    <frontend>
+        <routers>
+            <opinion>
+                <use>standard</use>
+                <args>
+                    <module>Sasha_Reviews</module>
+                    <frontName>sasha_reviews</frontName>
+                </args>
+            </opinion>
+        </routers>
+    </frontend>
 </config>
+
