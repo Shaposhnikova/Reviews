@@ -245,6 +245,7 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
                 $reviewsModel->setProductId($product_id);
             }
         }
+        $reviewsModel->save();
     }
 
     public function readAction()
