@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<layout>
+    <sasha_reviews_index_index>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+            <block type="reviews/review" template="sasha_reviews/index.phtml" />
+        </reference>
+    </sasha_reviews_index_index>
+</layout>

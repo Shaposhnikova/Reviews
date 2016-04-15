@@ -28,17 +28,33 @@
                 </setup>
             </sasha_reviews_setup>
         </resources>
+        <blocks>
+            <reviews>
+                <class>Sasha_Reviews_Block</class>
+            </reviews>
+        </blocks>
+        <helpers>
+            <reviews>
+                <class>Sasha_Reviews_Helper</class>
+            </reviews>
+        </helpers>
     </global>
     <frontend>
+        <layout>
+            <updates>
+                <sasha_reviews>
+                    <file>sasha_reviews.xml</file>
+                </sasha_reviews>
+            </updates>
+        </layout>
         <routers>
-            <opinion>
+            <sasha_reviews>
                 <use>standard</use>
                 <args>
                     <module>Sasha_Reviews</module>
                     <frontName>sasha_reviews</frontName>
                 </args>
-            </opinion>
+            </sasha_reviews>
         </routers>
     </frontend>
 </config>
-

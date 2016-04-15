@@ -1,0 +1,59 @@
+<h1>Opinion</h1>
+<?php echo $this->getName('bogdan'); ?>
+<?php $collection = $this->getReviewsCollection(); ?>
+<?php foreach ($collection as $reviews): ?>
+<h4> Opinion Id : <?php echo $reviews['opinion_id']; ?><br>
+    Customer Id : <?php echo $reviews['customer_id']; ?><br>
+    Description : <?php echo $reviews['description']; ?><br>
+    Advantage : <?php echo $reviews['advantage']; ?><br>
+    Disadvantage : <?php echo $reviews['disadvantage']; ?><br>
+    Rating : <?php echo $reviews['rating']; ?><br>
+    Recommend : <?php echo $reviews['recommend']; ?><br>
+    <?php endforeach; ?>
+    <br>
+    <?php echo $this->getAction(); ?>
+    <h4>Create</h4>
+    Description
+    <br>
+    <input type="text" name="txtName" size="10" maxlength="5"><br>
+    Advantage
+    <br>
+    <input type="text" name="txtName" size="10" maxlength="5"><br>
+    Disdvantage
+    <br>
+    <input type="text" name="txtName" size="10" maxlength="5"><br>
+    <br>
+
+    <p><input type="submit" form="auth"></p>
+    <br>
+    <h4>Update</h4>
+    Description
+    <br>
+    <input type="text" name="txtName" size="10" maxlength="5"><br>
+    Advantage
+    <br>
+    <input type="text" name="txtName" size="10" maxlength="5"><br>
+    Disdvantage
+    <br>
+    <input type="text" name="txtName" size="10" maxlength="5"><br>
+    <br>
+
+    <p><input type="submit" form="auth"></p>
+    <br>
+    <h4>Delete</h4>
+    Description
+    <br>
+    <input type="text" name="txtName" size="10" maxlength="5"><br>
+    Advantage
+    <br>
+    <input type="text" name="txtName" size="10" maxlength="5"><br>
+    Disdvantage
+    <br>
+    <input type="text" name="txtName" size="10" maxlength="5"><br>
+    <br>
+
+    <p><input type="submit" form="auth"></p>
+
+
+
+
