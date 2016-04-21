@@ -8,9 +8,23 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
         return !$result;
     }
 
+    protected function _redirectReferer($defaultUrl=null)
+    {
+
+        $refererUrl = $this->_getRefererUrl();
+        if (empty($refererUrl)) {
+            $refererUrl = empty($defaultUrl) ? Mage::getBaseUrl() : $defaultUrl;
+        }
+
+        $this->getResponse()->setRedirect($refererUrl);
+        return $this;
+    }
+
+
     public function createAction($opinionId = null)
     {
         $params = $this->getRequest()->getParams();
+
         if (empty($opinionId)) {
             $reviewsModel = Mage::getModel('reviews/reviews');
         } else {
@@ -130,6 +144,7 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
             }
         }
         $reviewsModel->save();
+        $this->_redirectReferer();
     }
 
     public function readAction()
@@ -187,6 +202,8 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
     public function updateAction()
     {
         $params = $this->getRequest()->getParams();
+//        var_dump($params);
+//        die();
         if($this->getRequest()->getParam('opinion_id')){
             $this->createAction($params['opinion_id']);
         }else{
@@ -214,6 +231,7 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
             if ($isParameterValid == true) {
                 $opinion = $reviewsModel->load($params['opinion_id']);
                 $opinion->delete();
+                $this->_redirectReferer();
                 echo "The 'opinion_id' is invalid! <br>";
             }
         }

@@ -1,5 +1,4 @@
 <h1>Opinion</h1>
-<?php echo $this->getName('bogdan'); ?>
 <?php $collection = $this->getReviewsCollection(); ?>
 <?php foreach ($collection as $reviews): ?>
 <h4> Opinion Id : <?php echo $reviews['opinion_id']; ?><br>
@@ -11,49 +10,56 @@
     Recommend : <?php echo $reviews['recommend']; ?><br>
     <?php endforeach; ?>
     <br>
-    <?php echo $this->getAction(); ?>
-    <h4>Create</h4>
-    Description
-    <br>
-    <input type="text" name="txtName" size="10" maxlength="5"><br>
-    Advantage
-    <br>
-    <input type="text" name="txtName" size="10" maxlength="5"><br>
-    Disdvantage
-    <br>
-    <input type="text" name="txtName" size="10" maxlength="5"><br>
+
+    <form action="<?php echo Mage::getUrl('sasha_reviews/review/create') ?>" method="post">
+
+        <h3>Create</h3>
+        Description
+        <br>
+        <input type="text" name="description" size="10" maxlength="5"><br>
+        Advantage
+        <br>
+        <input type="text" name="advantage" size="10" maxlength="5"><br>
+        Disadvantage
+        <br>
+        <input type="text" name="disadvantage" size="10" maxlength="5"><br>
+        <br>
+
+        <p><input type="submit" value="Create"></p>
+    </form>
+
     <br>
 
-    <p><input type="submit" form="auth"></p>
-    <br>
-    <h4>Update</h4>
-    Description
-    <br>
-    <input type="text" name="txtName" size="10" maxlength="5"><br>
-    Advantage
-    <br>
-    <input type="text" name="txtName" size="10" maxlength="5"><br>
-    Disdvantage
-    <br>
-    <input type="text" name="txtName" size="10" maxlength="5"><br>
+    <form action="<?php echo Mage::getUrl('sasha_reviews/review/update') ?>" method="post">
+
+        <h3>Update</h3>
+        Opinion Id
+        <br>
+        <input type="number" name="opinion_id" size="10" maxlength="5"><br>
+        Description
+        <br>
+        <input type="text" name="description" size="10" maxlength="5"><br>
+        Advantage
+        <br>
+        <input type="text" name="advantage" size="10" maxlength="5"><br>
+        Disadvantage
+        <br>
+        <input type="text" name="disadvantage" size="10" maxlength="5"><br>
+        <br>
+
+        <p><input type="submit" value="Update"></p>
+    </form>
     <br>
 
-    <p><input type="submit" form="auth"></p>
-    <br>
-    <h4>Delete</h4>
-    Description
-    <br>
-    <input type="text" name="txtName" size="10" maxlength="5"><br>
-    Advantage
-    <br>
-    <input type="text" name="txtName" size="10" maxlength="5"><br>
-    Disdvantage
-    <br>
-    <input type="text" name="txtName" size="10" maxlength="5"><br>
-    <br>
+    <form action="<?php echo Mage::getUrl('sasha_reviews/review/delete') ?>" method="post">
+        <h3>Delete</h3>
+        Opinion Id
+        <br>
+        <input type="number" name="opinion_id" size="10" maxlength="5"><br>
+        <br>
 
-    <p><input type="submit" form="auth"></p>
-
+        <p><input type="submit" value="Delete"></p>
+    </form>
 
 
 
