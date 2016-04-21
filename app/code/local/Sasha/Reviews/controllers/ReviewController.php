@@ -20,6 +20,24 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
         return $this;
     }
 
+    protected function _getRefererUrl()
+    {
+        $refererUrl = $this->getRequest()->getServer('HTTP_REFERER');
+        if ($url = $this->getRequest()->getParam(self::PARAM_NAME_REFERER_URL)) {
+            $refererUrl = $url;
+        }
+        if ($url = $this->getRequest()->getParam(self::PARAM_NAME_BASE64_URL)) {
+            $refererUrl = Mage::helper('core')->urlDecode($url);
+        }
+        if ($url = $this->getRequest()->getParam(self::PARAM_NAME_URL_ENCODED)) {
+            $refererUrl = Mage::helper('core')->urlDecode($url);
+        }
+
+        if (!$this->_isUrlInternal($refererUrl)) {
+            $refererUrl = Mage::app()->getStore()->getBaseUrl();
+        }
+        return $refererUrl;
+    }
 
     public function createAction($opinionId = null)
     {
@@ -34,13 +52,13 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
             $customerId = $params['customer_id'];
             $isParameterValid = true;
             if (empty($customerId)) {
-                echo "You have not filled in the field 'customer_id', please, go back and try again <br>";
+                Mage::getSingleton('core/session')->addError('You have not filled in the field "customer_id", please, go back and try again');
                 $isParameterValid = false;
             }
             if ($this->checkLength($customerId, 1, 3)) {
-                echo "The 'customer_id' is filled correctly! <br>";
+                Mage::getSingleton('core/session')->addSuccess('The "customer_id" is filled correctly!');
             } else {
-                echo "The 'customer_id' is invalid! <br>";
+                Mage::getSingleton('core/session')->addError('The "customer_id" is invalid!');
                 $isParameterValid = false;
             }
             if ($isParameterValid == true) {
@@ -51,10 +69,10 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
             $description = $params['description'];
             $isParameterValid = true;
             if (empty($description)) {
-                echo "You have not filled in the field 'description', please, go back and try again <br>";
+                Mage::getSingleton('core/session')->addError('You have not filled in the field "description", please, go back and try again');
                 $isParameterValid = false;
             } else {
-                echo "The 'description' is filled correctly! <br>";
+                Mage::getSingleton('core/session')->addSuccess('The "description" is filled correctly!');
             }
             if ($isParameterValid == true) {
                 $reviewsModel->setDescription($description);
@@ -64,10 +82,10 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
             $advantage = $params['advantage'];
             $isParameterValid = true;
             if (empty($advantage)) {
-                echo "You have not filled in the field 'advantage', please, go back and try again <br>";
+                Mage::getSingleton('core/session')->addError('You have not filled in the field "advantage", please, go back and try again');
                 $isParameterValid = false;
             } else {
-                echo "The 'advantage' is filled correctly! <br>";
+                Mage::getSingleton('core/session')->addSuccess('The "advantage" is filled correctly!');
             }
             if ($isParameterValid == true) {
                 $reviewsModel->setAdvantage($advantage);
@@ -77,10 +95,10 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
             $disadvantage = $params['disadvantage'];
             $isParameterValid = true;
             if (empty($disadvantage)) {
-                echo "You have not filled in the field 'disadvantage', please, go back and try again <br>";
+                Mage::getSingleton('core/session')->addError('You have not filled in the field "disadvantage", please, go back and try again');
                 $isParameterValid = false;
             } else {
-                echo "The 'disadvantage' is filled correctly! <br>";
+                Mage::getSingleton('core/session')->addSuccess('The "disadvantage" is filled correctly!');
             }
             if ($isParameterValid == true) {
                 $reviewsModel->setDisadvantage($disadvantage);
@@ -90,13 +108,13 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
             $rating = $params['rating'];
             $isParameterValid = true;
             if (empty($rating)) {
-                echo "You have not filled in the field 'rating', please, go back and try again <br>";
+                Mage::getSingleton('core/session')->addError('You have not filled in the field "rating", please, go back and try again');
                 $isParameterValid = false;
             }
             if ($this->checkLength($rating, 1, 5)) {
-                echo "The 'rating' is filled correctly! <br>";
+                Mage::getSingleton('core/session')->addSuccess('The "rating" is filled correctly!');
             } else {
-                echo "The 'rating' is invalid! <br>";
+                Mage::getSingleton('core/session')->addError('The "rating" is invalid!');
                 $isParameterValid = false;
             }
             if ($isParameterValid == true) {
@@ -107,10 +125,10 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
             $recommend = $params['recommend'];
             $isParameterValid = true;
             if (empty($recommend)) {
-                echo "You have not filled in the field 'recommend', please, go back and try again <br>";
+                Mage::getSingleton('core/session')->addError('You have not filled in the field "recommend", please, go back and try again');
                 $isParameterValid = false;
             } else {
-                echo "The 'recommend' is filled correctly!";
+                Mage::getSingleton('core/session')->addSuccess('The "recommend" is filled correctly!');
             }
             if ($isParameterValid == true) {
                 $reviewsModel->setRecommend($recommend);
@@ -120,13 +138,13 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
             $dataAdd = $params['data_add'];
             $isParameterValid = true;
             if (empty($dataAdd)) {
-                echo "You have not filled in the field 'data_add', please, go back and try again <br>";
+                Mage::getSingleton('core/session')->addError('You have not filled in the field "data_add", please, go back and try again');
                 $isParameterValid = false;
             }
             if ($this->checkLength($dataAdd, 2, 8)) {
-                echo "The 'data_add' is filled correctly! <br>";
+                Mage::getSingleton('core/session')->addSuccess('The "data_add" is filled correctly!');
             } else {
-                echo "The 'data_add' is invalid! <br>";
+                Mage::getSingleton('core/session')->addError('The "data_add" is invalid!');
                 $isParameterValid = false;
             }
             if ($isParameterValid == true) {
@@ -140,7 +158,7 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
             if (!empty($product)) {
                 $reviewsModel->setProductId($productId);
             } else {
-                echo "You have not filled in the field 'product_id', please, go back and try again <br>";
+                Mage::getSingleton('core/session')->addError('You have not filled in the field "product_id", please, go back and try again');
             }
         }
         $reviewsModel->save();
@@ -202,12 +220,10 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
     public function updateAction()
     {
         $params = $this->getRequest()->getParams();
-//        var_dump($params);
-//        die();
         if($this->getRequest()->getParam('opinion_id')){
             $this->createAction($params['opinion_id']);
         }else{
-            echo 'Please add opinion id';
+            Mage::getSingleton('core/session')->addError('Please add "opinion id"!');
         }
     }
 
@@ -219,20 +235,20 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
         if (array_key_exists('opinion_id', $params)) {
             $isParameterValid = true;
             if (empty($params['opinion_id'])) {
-                echo "You have not filled in the field 'opinion_id', please, go back and try again <br>";
+                Mage::getSingleton('core/session')->addError('You have not filled in the field "opinion_id", please, go back and try again');
                 $isParameterValid = false;
             }
             if ($this->checkLength($params['opinion_id'], 1, 3)) {
-                echo "The 'opinion_id' is filled correctly! <br>";
+                Mage::getSingleton('core/session')->addSuccess('The "opinion_id" is filled correctly!');
             } else {
-                echo "The 'opinion_id' is invalid! <br>";
+                Mage::getSingleton('core/session')->addError('The "opinion_id" is invalid!');
                 $isParameterValid = false;
             }
             if ($isParameterValid == true) {
                 $opinion = $reviewsModel->load($params['opinion_id']);
                 $opinion->delete();
                 $this->_redirectReferer();
-                echo "The 'opinion_id' is invalid! <br>";
+                Mage::getSingleton('core/session')->addSuccess('The "opinion_id" was successfully removed!');
             }
         }
     }
