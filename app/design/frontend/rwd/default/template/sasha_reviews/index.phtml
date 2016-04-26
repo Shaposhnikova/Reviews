@@ -1,17 +1,17 @@
 <h1>Opinion</h1>
 <?php $collection = $this->getReviewsCollection(); ?>
-<?php foreach ($collection as $reviews): ?>
-<h4> Opinion Id : <?php echo $reviews['opinion_id']; ?><br>
-    Customer Id : <?php echo $reviews['customer_id']; ?><br>
-    Description : <?php echo $reviews['description']; ?><br>
-    Advantage : <?php echo $reviews['advantage']; ?><br>
-    Disadvantage : <?php echo $reviews['disadvantage']; ?><br>
-    Rating : <?php echo $reviews['reting']; ?><br>
-    Recommend : <?php echo $reviews['recommend']; ?><br>
-    Data Add : <?php echo $reviews['data_add']; ?><br>
-    <?php endforeach; ?>
+<?php //foreach ($collection as $reviews): ?>
+<!--<h4> Opinion Id : --><?php //echo $reviews['opinion_id']; ?><!--<br>-->
+<!--    Customer Id : --><?php //echo $reviews['customer_id']; ?><!--<br>-->
+<!--    Description : --><?php //echo $reviews['description']; ?><!--<br>-->
+<!--    Advantage : --><?php //echo $reviews['advantage']; ?><!--<br>-->
+<!--    Disadvantage : --><?php //echo $reviews['disadvantage']; ?><!--<br>-->
+<!--    Rating : --><?php //echo $reviews['reting']; ?><!--<br>-->
+<!--    Recommend : --><?php //echo $reviews['recommend']; ?><!--<br>-->
+<!--    Data Add : --><?php //echo $reviews['data_add']; ?><!--<br>-->
+<!--    --><?php //endforeach; ?>
     <br>
-    <form name="test-form" id="my-custom-form" action="<?php echo Mage::getUrl('sasha_reviews/review/create') ?>" method="post">
+    <form name="create-opinion-form" id="create-opinion-form" action="<?php echo Mage::getUrl('sasha_reviews/review/create') ?>" method="post">
         <h3>Create</h3>
         Description
         <br>
@@ -35,56 +35,57 @@
         <input type="radio" name="rating" value="3"> 3<br>
         <input type="radio" name="rating" value="4"> 4<br>
         <input type="radio" name="rating" value="5"> 5<br>
+        <input type="hidden" name="productId" value="<?php echo Mage::registry('product')->getId(); ?>"/>
 
         <p><input type="submit" value="Create"></p>
     </form>
     <br>
-    <script type="text/javascript">
-        //< ![CDATA[
-        var customForm = new VarienForm('my-custom-form');
-        //]]>
-    </script>
 
-    <form name="test-form1" id="my-custom-form1" action="<?php echo Mage::getUrl('sasha_reviews/review/update') ?>" method="post">
-
-        <h3>Update</h3>
-        Opinion Id
-        <br>
-        <input type="number" name="opinion_id" class="input-text required-entry" /><br>
-        Description
-        <br>
-        <input type="text" name="description" class="input-text required-entry" /><br>
-        Advantage
-        <br>
-        <input type="text" name="advantage" class="input-text required-entry" /><br>
-        Disadvantage
-        <br>
-        <input type="text" name="disadvantage" class="input-text required-entry" /><br>
-        <br>
-
-        <p><input type="submit" value="Update"></p>
-    </form>
-    <script type="text/javascript">
-        //< ![CDATA[
-        var customForm1 = new VarienForm('my-custom-form1');
-        //]]>
-    </script>
-    <br>
-
-    <form name="test-form2" id="my-custom-form2" action="<?php echo Mage::getUrl('sasha_reviews/review/delete') ?>" method="post">
-        <h3>Delete</h3>
-        Opinion Id
-        <br>
-        <input type="number" name="opinion_id" class="input-text required-entry" /><br>
-        <br>
-
-        <p><input type="submit" value="Delete"></p>
-    </form>
-    <script type="text/javascript">
-        //< ![CDATA[
-        var customForm2 = new VarienForm('my-custom-form2');
-        //]]>
-    </script>
+<!--    <form name="test-form1" id="my-custom-form1" action="--><?php //echo Mage::getUrl('sasha_reviews/review/update') ?><!--" method="post">-->
+<!---->
+<!--        <h3>Update</h3>-->
+<!--        Opinion Id-->
+<!--        <br>-->
+<!--        <input type="number" name="opinion_id" class="input-text required-entry" /><br>-->
+<!--        Description-->
+<!--        <br>-->
+<!--        <input type="text" name="description" class="input-text required-entry" /><br>-->
+<!--        Advantage-->
+<!--        <br>-->
+<!--        <input type="text" name="advantage" class="input-text required-entry" /><br>-->
+<!--        Disadvantage-->
+<!--        <br>-->
+<!--        <input type="text" name="disadvantage" class="input-text required-entry" /><br>-->
+<!--        <br>-->
+<!---->
+<!--        <p><input type="submit" value="Update"></p>-->
+<!--    </form>-->
+<!--    <script type="text/javascript">-->
+<!--        //< ![CDATA[-->
+<!--        var customForm1 = new VarienForm('my-custom-form1');-->
+<!--        //]]>-->
+<!--    </script>-->
+<!--    <br>-->
+<!---->
+<!--    <form name="test-form2" id="my-custom-form2" action="--><?php //echo Mage::getUrl('sasha_reviews/review/delete') ?><!--" method="post">-->
+<!--        <h3>Delete</h3>-->
+<!--        Opinion Id-->
+<!--        <br>-->
+<!--        <input type="number" name="opinion_id" class="input-text required-entry" /><br>-->
+<!--        <br>-->
+<!---->
+<!--        <p><input type="submit" value="Delete"></p>-->
+<!--    </form>-->
+<!--    <script type="text/javascript">-->
+<!--        //< ![CDATA[-->
+<!--        var customForm2 = new VarienForm('my-custom-form2');-->
+<!--        //]]>-->
+<!--    </script>-->
+<script type="text/javascript">
+    //< ![CDATA[
+    var createOpinionForm = new VarienForm('create-opinion-form');
+    //]]>
+</script>
 
 
 

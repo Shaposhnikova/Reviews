@@ -84,22 +84,10 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
         if ($isParameterValid) {
             $reviewsModel->setRecommend($recommend);
         }
-//        if (!empty($params['product_id'])) {
-//            $productId = $params['product_id'];
-//            $isParameterValid = true;
-//            if ($this->checkLength($recommend, 1, 3)) {
-//                Mage::getSingleton('core/session')->addSuccess('The "product id" is filled correctly!');
-//            } else {
-//                Mage::getSingleton('core/session')->addError('The "product id" is invalid!');
-//                $isParameterValid = false;
-//            }
-//        } else {
-//            Mage::getSingleton('core/session')->addError('You have not filled in the field "product id", please, go back and try again');
-//            $isParameterValid = false;
-//        }
-//        if ($isParameterValid) {
-//            $reviewsModel->setRecommend($productId);
-//        }
+        if (!empty($params['productId'])) {
+            $productId = $params['productId'];
+            $reviewsModel->setProductId($productId);
+        }
         $dataAdd = Mage::getModel('core/date')->date('Y-m-d H:i:s');
         $reviewsModel->setDataAdd($dataAdd);
         $reviewsModel->save();

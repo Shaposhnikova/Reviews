@@ -1,5 +1,10 @@
 <?xml version="1.0" ?>
 <layout>
+    <catalog_product_view>
+        <reference name="content">
+            <block type="reviews/review" template="sasha_reviews/index.phtml" />
+        </reference>
+    </catalog_product_view>
     <sasha_reviews_index_index>
         <reference name="root">
             <action method="setTemplate"><template>page/1column.phtml</template></action>
