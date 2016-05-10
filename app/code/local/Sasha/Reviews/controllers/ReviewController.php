@@ -10,6 +10,7 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
 
     public function createAction($opinionId = null)
     {
+
         $params = $this->getRequest()->getParams();
 
         if (empty($opinionId)) {
@@ -17,22 +18,10 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
         } else {
             $reviewsModel = Mage::getModel('reviews/reviews')->load($opinionId);
         }
-//        if (!empty($params['customer_id'])) {
-//            $customerId = $params['customer_id'];
-//            $isParameterValid = true;
-//            if ($this->checkLength($customerId, 1, 3)) {
-//                Mage::getSingleton('core/session')->addSuccess('The "customer_id" is filled correctly!');
-//            } else {
-//                Mage::getSingleton('core/session')->addError('The "customer_id" is invalid!');
-//                $isParameterValid = false;
-//            }
-//        } else {
-//            Mage::getSingleton('core/session')->addError('You have not filled in the field "customer_id", please, go back and try again');
-//            $isParameterValid = false;
-//        }
-//        if ($isParameterValid) {
-//            $reviewsModel->setCustomerId($customerId);
-//        }
+        if (!empty($params['customer_id'])) {
+            $customerId = $params['customer_id'];
+            $reviewsModel->setCustomerId($customerId);
+        }
         if (!empty($params['description'])) {
             $description = $params['description'];
             $isParameterValid = true;
@@ -151,9 +140,9 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
     public function updateAction()
     {
         $params = $this->getRequest()->getParams();
-        if($this->getRequest()->getParam('opinion_id')){
+        if ($this->getRequest()->getParam('opinion_id')) {
             $this->createAction($params['opinion_id']);
-        }else{
+        } else {
             Mage::getSingleton('core/session')->addError('Please add "opinion id"!');
         }
     }
@@ -163,10 +152,10 @@ class Sasha_Reviews_ReviewController extends Mage_Core_Controller_Front_Action
         $params = $this->getRequest()->getParams();
         if (!empty($params['opinion_id'])) {
             $opinion = Mage::getModel('reviews/reviews')->load($params['opinion_id']);
-            if($opinion->getData()){
+            if ($opinion->getData()) {
                 $opinion->delete();
                 Mage::getSingleton('core/session')->addSuccess('Opinion was delete!');
-            }else{
+            } else {
                 Mage::getSingleton('core/session')->addError('Opinion id doesn\'t exist');
             }
         }
