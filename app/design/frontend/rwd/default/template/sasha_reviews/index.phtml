@@ -12,41 +12,33 @@
 <!--    --><?php //endforeach; ?>
 
 <?php if (Mage::getSingleton('customer/session')->isLoggedIn()): ?>
-
     <br>
-    <form name="create-opinion-form" id="create-opinion-form" action="<?php echo Mage::getUrl('sasha_reviews/review/create') ?>" method="post">
+    <form name="create-opinion-form" id="create-opinion-form"
+          action="<?php echo Mage::getUrl('sasha_reviews/review/create') ?>" method="post">
         <h3>Create</h3>
-        Description
-        <br>
-        <input type="text" name="description" class="input-text required-entry" /><br>
-        Advantage
-        <br>
-        <input type="text" name="advantage" class="input-text required-entry" /><br>
-        Disadvantage
-        <br>
-        <input type="text" name="disadvantage" class="input-text required-entry" /><br>
-        <br>
-        Recommend
-        <br>
-        <input type="radio" name="recommend" value="yes" required> Yes<br>
+        Description<br><input type="text" name="description" class="input-text required-entry"/><br>
+        Advantage<br><input type="text" name="advantage" class="input-text required-entry"/><br>
+        Disadvantage<br><input type="text" name="disadvantage" class="input-text required-entry"/><br><br>
+        Recommend<br><input type="radio" name="recommend" value="yes" required> Yes<br>
         <input type="radio" name="recommend" value="no" required> No<br>
         <br>
-        Rating
-        <br>
+        Rating<br>
         <input type="radio" name="rating" value="1" required> 1<br>
         <input type="radio" name="rating" value="2"> 2<br>
         <input type="radio" name="rating" value="3"> 3<br>
         <input type="radio" name="rating" value="4"> 4<br>
         <input type="radio" name="rating" value="5"> 5<br>
         <input type="hidden" name="productId" value="<?php echo Mage::registry('product')->getId(); ?>"/>
-        <input type="hidden" name="customerId" value="<?php echo Mage::getSingleton('customer/session')->getCustomerId(); ?>"/>
+        <input type="hidden" name="customerId"
+               value="<?php echo Mage::getSingleton('customer/session')->getCustomerId(); ?>"/>
+
         <p><input type="submit" value="Create"></p>
     </form>
     <br>
-<script type="text/javascript">
-    //< ![CDATA[
-    var createOpinionForm = new VarienForm('create-opinion-form');
-    //]]>
-</script>
+    <script type="text/javascript">
+        //< ![CDATA[
+        var createOpinionForm = new VarienForm('create-opinion-form');
+        //]]>
+    </script>
 <?php endif ?>
 
