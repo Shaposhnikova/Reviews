@@ -1,4 +1,4 @@
-<h1>Opinion</h1>
+<h1><?php echo $this->__('Opinion') ?></h1>
 <?php $collection = $this->getReviewsCollection(); ?>
 <?php //foreach ($collection as $reviews): ?>
 <!--<h4> Opinion Id : --><?php //echo $reviews['opinion_id']; ?><!--<br>-->
@@ -15,14 +15,14 @@
     <br>
     <form name="create-opinion-form" id="create-opinion-form"
           action="<?php echo Mage::getUrl('sasha_reviews/review/create') ?>" method="post">
-        <h3>Create</h3>
-        Description<br><input type="text" name="description" class="input-text required-entry"/><br>
-        Advantage<br><input type="text" name="advantage" class="input-text required-entry"/><br>
-        Disadvantage<br><input type="text" name="disadvantage" class="input-text required-entry"/><br><br>
-        Recommend<br><input type="radio" name="recommend" value="yes" required> Yes<br>
-        <input type="radio" name="recommend" value="no" required> No<br>
+        <h3><?php echo $this->__('Create') ?></h3>
+        <?php echo $this->__('Description') ?><br><input type="text" name="description" class="input-text required-entry"/><br>
+        <?php echo $this->__('Advantage') ?><br><input type="text" name="advantage" class="input-text required-entry"/><br>
+        <?php echo $this->__('Disadvantage') ?><br><input type="text" name="disadvantage" class="input-text required-entry"/><br><br>
+        <?php echo $this->__('Recommend') ?><br><input type="radio" name="recommend" value="yes" required> <?php echo $this->__('Yes') ?><br>
+        <input type="radio" name="recommend" value="no" required> <?php echo $this->__('No') ?><br>
         <br>
-        Rating<br>
+        <?php echo $this->__('Rating') ?><br>
         <input type="radio" name="rating" value="1" required> 1<br>
         <input type="radio" name="rating" value="2"> 2<br>
         <input type="radio" name="rating" value="3"> 3<br>
@@ -32,7 +32,7 @@
         <input type="hidden" name="customerId"
                value="<?php echo Mage::getSingleton('customer/session')->getCustomerId(); ?>"/>
 
-        <p><input type="submit" value="Create"></p>
+        <p><input type="submit" value="<?php echo $this->__('Create') ?>"></p>
     </form>
     <br>
     <script type="text/javascript">
