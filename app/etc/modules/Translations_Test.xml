@@ -1,8 +1,0 @@
-<config>
-    <modules>
-        <Translations_Test>
-            <active>true</active>
-            <codePool>local</codePool>
-        </Translations_Test>
-    </modules>
-</config>

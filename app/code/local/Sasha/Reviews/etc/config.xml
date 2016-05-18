@@ -56,5 +56,25 @@
                 </args>
             </sasha_reviews>
         </routers>
+        <translate>
+            <modules>
+                <Sasha_Reviews>
+                    <files>
+                        <default>Translations.csv</default>
+                    </files>
+                </Sasha_Reviews>
+            </modules>
+        </translate>
     </frontend>
+    <adminhtml>
+        <translate>
+            <modules>
+                <Sasha_Reviews>
+                    <files>
+                        <default>Translations.csv</default>
+                    </files>
+                </Sasha_Reviews>
+            </modules>
+        </translate>
+    </adminhtml>
 </config>
