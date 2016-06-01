@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Tim
+ *
+ * @category   Tim
+ * @package    Tim_CustomerWithoutOrder
+ * @copyright  Copyright (c) 2015 Tim (http://tim.pl)
+ * @author     Bogdan Bakalov <bakalov.bogdan@gmail.com>
+ */
+-->
+<config>
+    <menu>
+        <report>
+            <children>
+                <sasha translate="title" module="sasha_reviews">
+                    <title>Sasha</title>
+                    <children>
+                        <sasha_reviews_report translate="title" module="sasha_reviews">
+                            <title>Reviews Report</title>
+                            <action>adminhtml/reviewsReport</action>
+                        </sasha_reviews_report>
+                    </children>
+                </sasha>
+            </children>
+        </report>
+        <sasha translate="title" module="sasha_reviews">
+            <title>Sasha</title>
+            <children>
+                <reports>
+                    <title>Reports</title>
+                    <children>
+                        <sasha_report translate="title" module="sasha_reviews">
+                            <title>Sasha Report</title>
+                            <action>adminhtml/sashaReport</action>
+                        </sasha_report>
+                    </children>
+                </reports>
+            </children>
+        </sasha>
+    </menu>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <report>
+                        <children>
+                            <sasha translate="title" module="sasha_reviews">
+                                <title>Sasha</title>
+                                <children>
+                                    <sasha_reviews_report translate="title" module="sasha_reviews">
+                                        <title>Reviews Report</title>
+                                    </sasha_reviews_report>
+                                </children>
+                            </sasha>
+                        </children>
+                    </report>
+                    <sasha translate="title" module="sasha_reviews">
+                        <title>Sasha</title>
+                        <children>
+                            <reports translate="title" module="sasha_reviews">
+                                <title>Reports</title>
+                                <children>
+                                    <sasha_report translate="title" module="sasha_reviews">
+                                        <title>Sasha Report</title>
+                                    </sasha_report>
+                                </children>
+                            </reports>
+                        </children>
+                    </sasha>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

@@ -34,11 +34,22 @@
             </reviews>
         </blocks>
         <helpers>
-            <reviews>
+            <sasha_reviews>
                 <class>Sasha_Reviews_Helper</class>
-            </reviews>
+            </sasha_reviews>
         </helpers>
     </global>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <sasha_reviews before="Mage_Adminhtml">Sasha_Reviews_Adminhtml</sasha_reviews>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
     <frontend>
         <layout>
             <updates>
@@ -60,7 +71,7 @@
             <modules>
                 <Sasha_Reviews>
                     <files>
-                        <default>Translations.csv</default>
+                        <default>Sasha_Reviews.csv</default>
                     </files>
                 </Sasha_Reviews>
             </modules>
@@ -71,7 +82,7 @@
             <modules>
                 <Sasha_Reviews>
                     <files>
-                        <default>Translations.csv</default>
+                        <default>Sasha_Reviews.csv</default>
                     </files>
                 </Sasha_Reviews>
             </modules>

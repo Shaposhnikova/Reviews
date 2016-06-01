@@ -8,3 +8,5 @@ class Sasha_Reviews_IndexController extends Mage_Core_Controller_Front_Action
         $this->renderLayout();
     }
 }
+
+
