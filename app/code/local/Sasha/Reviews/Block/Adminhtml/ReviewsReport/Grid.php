@@ -24,8 +24,6 @@ class Sasha_Reviews_Block_Adminhtml_ReviewsReport_Grid extends Mage_Adminhtml_Bl
     protected function _prepareCollection()
     {
         $collection = Mage::getModel('reviews/reviews')->getCollection();
-//        echo '<pre>';
-//        var_dump($collection->getData());
         $this->setCollection($collection);
 
         return parent::_prepareCollection();
@@ -61,29 +59,6 @@ class Sasha_Reviews_Block_Adminhtml_ReviewsReport_Grid extends Mage_Adminhtml_Bl
             'type' => 'options',
             'options' => Mage::helper('sasha_reviews')->getReviewsIds(),
         ));
-//        $this->addColumn('package_id', array(
-//            'header' => 'Package',
-//            'width' => '50',
-//            'index' => 'package_id',
-////            'type' => 'options',
-////            'options' => Mage::helper('tim_customer_without_order')->getPackageOptions(),
-//            'filter_index' => 'tim_package.tim_package_name',
-//            'renderer' => 'Tim_CustomerWithoutOrder_Block_Adminhtml_Render_Package'
-//        ));
-//        $this->addColumn('channel', array(
-//            'header' => Mage::helper('tim_customer_without_order')->__('Channel'),
-//            'width' => '30',
-//            'index' => 'channel'
-//        ));
-//        $this->addColumn('date_add', array(
-//            'header' => Mage::helper('tim_customer_without_order')->__('Date add'),
-//            'index' => 'date_add',
-//            'type' => 'datetime',
-//            'width' => '100'
-//        ));
-//
-//        $this->addExportType('*/*/exportCsv', Mage::helper('sales')->__('CSV'));
-//        $this->addExportType('*/*/exportExcel', Mage::helper('sales')->__('Excel XML'));
 
         return parent::_prepareColumns();
     }
@@ -97,19 +72,4 @@ class Sasha_Reviews_Block_Adminhtml_ReviewsReport_Grid extends Mage_Adminhtml_Bl
     {
         return $this->getUrl('*/*/grid', array('_current' => true));
     }
-//
-//    /**
-//     * Returns a row URL
-//     *
-//     * @param mixed $row row
-//     *
-//     * @return string
-//     */
-//    public function getRowUrl($row)
-//    {
-//        return $this->getUrl('*/customer/edit', array(
-//                'store' => $this->getRequest()->getParam('store'),
-//                'id' => $row->getCustomerId())
-//        );
-//    }
 }

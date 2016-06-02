@@ -16,7 +16,7 @@ class Sasha_Reviews_Block_Adminhtml_ReviewsReport extends Mage_Adminhtml_Block_W
     {
         $this->_blockGroup = 'reviews';
         $this->_controller = 'adminhtml_reviewsReport';
-        $this->_headerText = Mage::helper('sasha_reviews')->__('Reviews2');
+        $this->_headerText = Mage::helper('sasha_reviews')->__('Reviews');
 
         parent::__construct();
         $this->_removeButton('add');

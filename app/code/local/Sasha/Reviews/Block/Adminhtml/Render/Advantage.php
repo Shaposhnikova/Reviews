@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Tim
  *
@@ -11,8 +12,10 @@ class Sasha_Reviews_Block_Adminhtml_Render_Advantage extends Mage_Adminhtml_Bloc
 {
     public function render(Varien_Object $row)
     {
-        $advantage = "Sasha" . $row->getAdvantage();
-
+        $advantage = $row->getData($this->getColumn()->getIndex());
+        if (strlen($advantage) > 5) {
+            $advantage = substr($advantage, 0, 5) . '...';
+        }
         return $advantage;
     }
 }
