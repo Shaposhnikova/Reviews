@@ -1,0 +1,8 @@
+<config>
+    <modules>
+        <Sasha_Test>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Sasha_Test>
+    </modules>
+</config>
